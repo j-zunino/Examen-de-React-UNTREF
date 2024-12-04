@@ -1,8 +1,9 @@
-# Examen: Conversión de Aplicación de Streaming a React 
+
+# 📽️ Examen: Conversión de Aplicación de Streaming a React
 
 ## Introducción
 
-El objetivo de este proyecto es tomar una aplicación existente de visualización de trailers, llamada **Trailerflix**, desarrollada en **HTML, CSS y JavaScript**, y convertirla a **React** utilizando **Vite**. Deberán seguir las mejores prácticas y patrones de diseño de React, aprovechando los hooks y herramientas clave, tales como `useState`, `useEffect`, `react-router`, `useNavigate`, y **Custom Hooks**.
+🎯 El objetivo de este proyecto es tomar una aplicación existente de visualización de trailers, llamada **Trailerflix**, desarrollada en **HTML, CSS y JavaScript**, y convertirla a **React** utilizando **Vite**. Deberán seguir las mejores prácticas y patrones de diseño de React, aprovechando los hooks y herramientas clave, tales como `useState`, `useEffect`, `react-router`, `useNavigate`, y **Custom Hooks**. Además, deberán implementar el uso de **localStorage** para la persistencia de datos.
 
 ## Requerimientos Técnicos
 
@@ -13,7 +14,7 @@ La conversión debe implementar lo siguiente:
 - **react-router**: Para manejar la navegación entre la página principal y la de detalles de la película.
 - **useNavigate**: Para redirigir a los usuarios entre las diferentes páginas (por ejemplo, después de seleccionar una película).
 - **useContext**: Para manejar el estado global de autenticación del usuario. Este estado debe mostrarse en todas las páginas, donde el componente de login muestra el nombre de usuario cuando está logueado y el botón de cierre de sesión. No se requiere redirigir después de iniciar sesión.
-- **Custom Hooks**: Para encapsular la lógica de autenticación de usuarios.
+- **Custom Hooks**: Para encapsular la lógica de autenticación de usuarios y la interacción con **localStorage**.
 
 ## Pasos para la Conversión
 
@@ -42,13 +43,14 @@ La conversión debe implementar lo siguiente:
   - Una vez autenticado, debe actualizarse el componente de login para mostrar el nombre y el botón de cerrar sesión.
 
 ### 6. Implementación de Custom Hooks
-- **useAuth**: Un custom hook para manejar la lógica de autenticación de usuarios.
+- **useAuth**: Un custom hook para manejar la lógica de autenticación de usuarios, integrando el almacenamiento y recuperación de datos desde **localStorage**.
 
 ## Requerimientos Funcionales
 
 1. **Visualización de películas**: La lista de películas debe cargarse dinámicamente desde el archivo `trailerflix.json`.
 2. **Autenticación de usuarios**: El sistema debe permitir iniciar sesión, mostrando el formulario de login o la información del usuario según corresponda. Al iniciar sesión, solo debe actualizarse el componente de login, sin redirecciones.
-3. **Hooks personalizados**: Se deben implementar hooks personalizados para la lógica de autenticación.
+3. **Persistencia con localStorage**: Almacenar la información del usuario en **localStorage** para mantener la sesión activa entre recargas de la página.
+4. **Hooks personalizados**: Se deben implementar hooks personalizados para la lógica de autenticación.
 
 ## Evaluación
 
@@ -59,4 +61,9 @@ La conversión debe implementar lo siguiente:
 
 ## Entrega
 
-Los alumnos deberán subir el proyecto a un repositorio de **GitHub**, con instrucciones claras para ejecutarlo, y enviar el enlace antes de la fecha límite.
+🔗 Los alumnos deberán:
+1. Hacer un **fork** del repositorio base.
+2. Subir el proyecto al fork del repositorio.
+3. Compartir el acceso del repositorio con los usuarios **@FabioDrizzt** y **@LautaroMansilla** en GitHub.
+4. Incluir un archivo `README.md` con las instrucciones claras para ejecutar el proyecto.
+5. Enviar el enlace del repositorio antes de la fecha límite.
