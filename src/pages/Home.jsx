@@ -1,18 +1,9 @@
-import { useState, useEffect } from 'react';
-import trailerflixData from '../data/trailerflix.json';
+import { Link } from 'react-router-dom';
+import useGetFilms from '../hooks/useGetFilms';
 
 export default function Home() {
-    const [filmList, setFilmList] = useState([]);
-    const [error, setError] = useState(null);
+    const { filmList, error } = useGetFilms();
     const groupedFilms = {};
-
-    useEffect(() => {
-        try {
-            setFilmList(trailerflixData);
-        } catch (err) {
-            setError(true);
-        }
-    }, []);
 
     filmList.forEach((film) => {
         const genre = film.gen;
@@ -48,13 +39,13 @@ export default function Home() {
             {generos.map(
                 (genre) =>
                     groupedFilms[genre] && (
-                        <article className="container loading" key={genre}>
+                        <article className="container" key={genre}>
                             <article className="genero">
                                 <h2>{genre}</h2>
                             </article>
                             {groupedFilms[genre].map((film) => (
                                 <div className="card" key={film.id}>
-                                    <a href="">
+                                    <Link to={`/movie/${film.id}`}>
                                         <div className="card-picture">
                                             <img
                                                 src={film.poster}
@@ -68,7 +59,7 @@ export default function Home() {
                                             </p>
                                             <p>{film.categoria}</p>
                                         </div>
-                                    </a>
+                                    </Link>
                                 </div>
                             ))}
                         </article>
