@@ -39,7 +39,7 @@ export default function Header() {
                             type="text"
                             id="username"
                             placeholder="Usuario"
-                            value={username}
+                            // value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required
                         />
@@ -47,7 +47,7 @@ export default function Header() {
                             type="password"
                             id="password"
                             placeholder="Contraseña"
-                            value={password}
+                            // value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
