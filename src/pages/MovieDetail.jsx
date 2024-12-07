@@ -6,18 +6,16 @@ export default function MovieDetail() {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    if (!filmList || filmList.length === 0) {
-        return <h1>Cargando...</h1>;
-    }
-
     const film = filmList.find((film) => String(film.id) === String(id));
 
     return (
         <>
-            {film ? (
+            {!film ? (
+                <h1>Película no encontrada</h1>
+            ) : (
                 <>
                     <h4
-                        onClick={() => navigate(-1)}
+                        onClick={() => navigate('/')}
                         style={{ marginTop: 60, marginBottom: 0 }}
                     >
                         Volver al inicio
@@ -47,8 +45,6 @@ export default function MovieDetail() {
                         </div>
                     </div>
                 </>
-            ) : (
-                <h1>Película no encontrada</h1>
             )}
         </>
     );

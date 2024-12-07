@@ -8,6 +8,7 @@ export default function Home() {
 
     filmList.forEach((film) => {
         const genre = film.gen;
+
         if (!groupedFilms[genre]) {
             groupedFilms[genre] = [];
         }
