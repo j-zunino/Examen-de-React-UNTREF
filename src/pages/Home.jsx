@@ -1,9 +1,10 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useGetFilms from '../hooks/useGetFilms';
 
 export default function Home() {
     const { filmList, error } = useGetFilms();
     const groupedFilms = {};
+    const navigate = useNavigate();
 
     filmList.forEach((film) => {
         const genre = film.gen;
@@ -25,6 +26,10 @@ export default function Home() {
         'Aventura'
     ].sort();
 
+    const handleClick = (id) => {
+        navigate(`/movie/${id}`);
+    };
+
     return error ? (
         <article className="container loading">
             <div className="error">
@@ -35,7 +40,6 @@ export default function Home() {
         </article>
     ) : (
         <>
-            {/* TODO: useNavigate */}
             {generos.map(
                 (genre) =>
                     groupedFilms[genre] && (
@@ -44,22 +48,24 @@ export default function Home() {
                                 <h2>{genre}</h2>
                             </article>
                             {groupedFilms[genre].map((film) => (
-                                <div className="card" key={film.id}>
-                                    <Link to={`/movie/${film.id}`}>
-                                        <div className="card-picture">
-                                            <img
-                                                src={film.poster}
-                                                alt={film.titulo}
-                                                title={film.titulo}
-                                            />
-                                        </div>
-                                        <div className="card-bottom">
-                                            <p className="card-bottom-title">
-                                                {film.titulo}
-                                            </p>
-                                            <p>{film.categoria}</p>
-                                        </div>
-                                    </Link>
+                                <div
+                                    onClick={() => handleClick(film.id)}
+                                    className="card"
+                                    key={film.id}
+                                >
+                                    <div className="card-picture">
+                                        <img
+                                            src={film.poster}
+                                            alt={film.titulo}
+                                            title={film.titulo}
+                                        />
+                                    </div>
+                                    <div className="card-bottom">
+                                        <p className="card-bottom-title">
+                                            {film.titulo}
+                                        </p>
+                                        <p>{film.categoria}</p>
+                                    </div>
                                 </div>
                             ))}
                         </article>

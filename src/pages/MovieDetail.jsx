@@ -1,9 +1,10 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useGetFilms from '../hooks/useGetFilms';
 
 export default function MovieDetail() {
     const { filmList } = useGetFilms();
     const { id } = useParams();
+    const navigate = useNavigate();
 
     if (!filmList || filmList.length === 0) {
         return <h1>Cargando...</h1>;
@@ -15,7 +16,13 @@ export default function MovieDetail() {
         <>
             {film ? (
                 <>
-                    <h1 style={{ marginTop: 45 }}>Detalles de la película</h1>
+                    <h4
+                        onClick={() => navigate(-1)}
+                        style={{ marginTop: 60, marginBottom: 0 }}
+                    >
+                        Volver al inicio
+                    </h4>
+                    <h1 style={{ marginTop: 0 }}>Detalles de la película</h1>
                     <div className="movie-details">
                         <div className="movie-poster">
                             <img src={film.poster} alt="" />

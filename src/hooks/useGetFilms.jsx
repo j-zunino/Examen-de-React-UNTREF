@@ -1,16 +1,24 @@
 import { useState, useEffect } from 'react';
-import trailerflixData from '../data/trailerflix.json';
 
 export default function useGetFilms() {
     const [filmList, setFilmList] = useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        try {
-            setFilmList(trailerflixData);
-        } catch (err) {
-            setError(true);
-        }
+        fetch('/data/trailerflix.json')
+            .then((response) => response.json())
+            .then((data) => {
+                setFilmList(data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                setError(error);
+            });
+        // try {
+        //     setFilmList(trailerflixData);
+        // } catch (err) {
+        //     setError(err);
+        // }
     }, []);
 
     return { filmList, error };
