@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import useGetFilms from '../hooks/useGetFilms';
+import Card from '../components/Card';
 
 export default function Home() {
     const { filmList, error } = useGetFilms();
@@ -49,25 +50,11 @@ export default function Home() {
                                 <h2>{genre}</h2>
                             </article>
                             {groupedFilms[genre].map((film) => (
-                                <div
-                                    onClick={() => handleClick(film.id)}
-                                    className="card"
+                                <Card
                                     key={film.id}
-                                >
-                                    <div className="card-picture">
-                                        <img
-                                            src={film.poster}
-                                            alt={film.titulo}
-                                            title={film.titulo}
-                                        />
-                                    </div>
-                                    <div className="card-bottom">
-                                        <p className="card-bottom-title">
-                                            {film.titulo}
-                                        </p>
-                                        <p>{film.categoria}</p>
-                                    </div>
-                                </div>
+                                    film={film}
+                                    handleClick={handleClick}
+                                />
                             ))}
                         </article>
                     )

@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
 import Home from './pages/Home';
-import MovieDetail from './pages/MovieDetail.jsx';
+import MovieDetail from './pages/Movie.jsx';
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
